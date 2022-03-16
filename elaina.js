@@ -28,13 +28,13 @@ nocache('./command/case.js', module => console.log(`${module} is now updated!`))
 const starts = async (elaina = new WAConnection()) => {
     elaina.logger.level = 'warn'
     elaina.version = [2, 2143, 3]
-    elaina.browserDescription = [ 'elaina-Bot', 'Chrome', '3.0' ]
-	CFonts.say('elaina', {
+    elaina.browserDescription = [ 'Lolita', 'ubuntu']
+	CFonts.say('Lolita', {
 		font: 'block',
     	color: ['#ff9c00'],
     	align: 'center',
 		})
-	CFonts.say(`Bot WhatsApp Created By RflBotz Ofc`, {
+	CFonts.say(`Nope`, {
 		font: 'console',
 		align: 'center',
 		gradient: ['red', 'magenta']
