@@ -405,7 +405,7 @@ case 'menu':
 case 'help':
 case 'elaina':
 if (!iselaina) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-elaina.sendMessage(from, {"contentText": `lang.menu(prefix, salam, pushname)`,  "footerText": `'© ' + ownername`,"buttons": [{buttonId: '.owner', buttonText: {displayText: 'Owner'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'Infobot'}, type: 1}],
+elaina.sendMessage(from, {"contentText": lang.menu(prefix, salam, pushname), "buttons": [{buttonId: '.owner', buttonText: {displayText: 'Owner'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'Infobot'}, type: 1}],
 "headerType": "DOCUMENT", "documentMessage": {
             "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc",
             "mimetype": "application/pdf",
