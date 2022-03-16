@@ -428,14 +428,14 @@ if (!iselaina) return sendButMessage(from, lang.noregis(pushname), `Klik Button 
   privat = elaina.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
   timestampe = speed();
   latensie = speed() - timestampe
-todnms = '
+todnms = `
   🌐GRUB TOTAL : ${groups.length}_
 _🎲PRIBADI CHAT : ${privat.length}_
 _🎭BATERAI : ${baterai}% ${charger}_
 _🌠TOTAL CHAT : ${totalChat.length}_
 _🏳‍🌈KECEPATAN : ${latensie.toFixed(4)} Detik_
 _𓃲RUNTIME : ${runtime(process.uptime())}_
-'
+`
 sendButMessage(from, todnms, `LOLITA BOT BY TRITO`, [{buttonId: '.menu',buttonText: {displayText: `back to menu`,},type: 1,}], {quoted: fgif});
 
 		reply('todnmsf')
