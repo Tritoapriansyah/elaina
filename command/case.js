@@ -284,7 +284,8 @@ module.exports = elaina = async (elaina, mek) => {
                 return elaina.sendMessage(from, await getBuffer(url), audio, {caption: caption, mentions: men ? men : [], mimetype: 'audio/mpeg', quoted: mek })
             }
         }
-				
+elaina.chatRead(from)
+	    
 				// send message button
 				const sendButMessage = (id, text1, desc1, but = [], options = {}) => {
 					const buttonMessage = {
