@@ -401,13 +401,44 @@ module.exports = elaina = async (elaina, mek) => {
 		if (!mek.key.fromMe && global.self === true) return
 //colong aja bang, ingat jgn asal colong ntr sc lu error
 switch (command) {
-case 'menu': case 'help': case 'elaina':
+case 'menu':
+case 'help':
+case 'elaina':
 if (!iselaina) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-				sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, thumbnail, [{buttonId: '.owner', buttonText: {displayText: 'Owner'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'Infobot'}, type: 1}], {quoted: mek})
-				break
+eleina.sendMessage(from, {"contentText": `lang.menu(prefix, salam, pushname)`,  "footerText": `'© ' + ownername`,"buttons": [{buttonId: '.owner', buttonText: {displayText: 'Owner'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'Infobot'}, type: 1}],
+"headerType": "DOCUMENT", "documentMessage": {
+            "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc",
+            "mimetype": "application/pdf",
+            "title": "LolitaBot.pdf", // nama.pdf
+            "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=",
+            "fileLength": "999999999999",
+            "pageCount": 999,
+            "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=",
+            "fileName": "Lolita Bot", // file name
+            "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=",
+            "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC",
+            "mediaKeyTimestamp": "1634472176",
+            "jpegThumbnail": thumbnail,
+  }}, MessageType.buttonsMessage,{ quoted: mek, sendEphemeral: true, contextInfo:{"forwardingScore":999,"isForwarded":true, "externalAdReply":{"title": `Hai Kak ${pushname}`, "body": `Lolita Botz`, mediaType: 2, "thumbnailUrl": "https://cdn-image.hipwee.com/wp-content/uploads/2021/03/hipwee-gojo_satoru_by_chuutadesu_deb0dr7-fullview-750x422.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/dQw4w9WgXcQ`}}})
+break
 case 'infobot':
 if (!iselaina) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-			reply('Update bot selanjutnya silahkan cek YouTube RflBotz ofc')
+  totalChat = await eleina.chats.all()
+  groups = eleina.chats.array.filter(v => v.jid.endsWith('g.us'))
+  privat = eleina.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+  timestampe = speed();
+  latensie = speed() - timestampe
+todnms = '
+  🌐GRUB TOTAL : ${groups.length}_
+_🎲PRIBADI CHAT : ${privat.length}_
+_🎭BATERAI : ${baterai}% ${charger}_
+_🌠TOTAL CHAT : ${totalChat.length}_
+_🏳‍🌈KECEPATAN : ${latensie.toFixed(4)} Detik_
+_𓃲RUNTIME : ${runtime(process.uptime())}_
+'
+sendButMessage(from, todnms, `LOLITA BOT BY TRITO`, [{buttonId: '.menu',buttonText: {displayText: `back to menu`,},type: 1,}], {quoted: fgif});
+
+		reply('todnmsf')
 break
 case 'owner':{
 if (!iselaina) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
@@ -638,26 +669,44 @@ case 'faktaunik':
 faktaunik = await fetchJson(`https://api.lolhuman.xyz/api/random/faktaunik?apikey=${lolkey}`)
 reply(`*Taukah kamu ternyata*\n${faktaunik.result}`) 
 break
-case 'wikipedia':
-if (args.length == 0) return reply(`Nama Yg Mau Di Cari Mana Kak\nContoh: ${prefix + command} Tahu`)
-query = args.join(" ")
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/wiki?apikey=${lolkey}`)
-get_result = get_result.result
-reply(get_result)
+case 'wikipedia':
+
+if (args.length == 0) return reply(`Nama Yg Mau Di Cari Mana Kak\nContoh: ${prefix + command} Tahu`)
+
+query = args.join(" ")
+
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/wiki?apikey=${lolkey}`)
+
+get_result = get_result.result
+
+reply(get_result)
+
 break
-case 'translate':
-if (args.length == 0) return reply(`Teks Yg Mau Di Translate Mana Kak\nContoh: ${prefix + command} en Good Morning`)
-kode_negara = args[0]
-args.shift()
-ini_txt = args.join(" ")
+case 'translate':
+
+if (args.length == 0) return reply(`Teks Yg Mau Di Translate Mana Kak\nContoh: ${prefix + command} en Good Morning`)
+
+kode_negara = args[0]
+
+args.shift()
+
+ini_txt = args.join(" ")
+
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/id?apikey=${lolkey}`)
-get_result = get_result.result
-init_txt = `From : ${get_result.from}\n`
-init_txt += `To : ${get_result.to}\n`
-init_txt += `Original : ${get_result.original}\n`
-init_txt += `Translated : ${get_result.translated}\n`
-init_txt += `Pronunciation : ${get_result.pronunciation}\n`
-reply(init_txt)
+get_result = get_result.result
+
+init_txt = `From : ${get_result.from}\n`
+
+init_txt += `To : ${get_result.to}\n`
+
+init_txt += `Original : ${get_result.original}\n`
+
+init_txt += `Translated : ${get_result.translated}\n`
+
+init_txt += `Pronunciation : ${get_result.pronunciation}\n`
+
+reply(init_txt)
+
 break
 case 'katabijak':
 anu = await fetchJson(`https://api.lolhuman.xyz/api/random/katabijak?apikey=${lolkey}`)
